@@ -3,7 +3,7 @@ import 'package:wantsbro_admin/Pages/Drawer%20menu%20pages/categories/categories
 import 'package:wantsbro_admin/Pages/Drawer%20menu%20pages/dashboard.dart';
 import 'package:wantsbro_admin/Pages/Drawer%20menu%20pages/logout.dart';
 import 'package:wantsbro_admin/Pages/Drawer%20menu%20pages/messages.dart';
-import 'package:wantsbro_admin/Pages/Drawer%20menu%20pages/orders.dart';
+import 'package:wantsbro_admin/Pages/Drawer%20menu%20pages/orders/orders.dart';
 import 'package:wantsbro_admin/Pages/Drawer%20menu%20pages/products/products.dart';
 import 'package:wantsbro_admin/Pages/Drawer%20menu%20pages/reviews.dart';
 import 'package:wantsbro_admin/Pages/Drawer%20menu%20pages/settings.dart';

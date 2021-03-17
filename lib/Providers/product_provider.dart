@@ -23,6 +23,10 @@ class ProductProvider extends ChangeNotifier {
         .snapshots();
   }
 
+  Future<DocumentSnapshot> getProductById({@required String productId}) {
+    return productCollection.doc(productId).get();
+  }
+
   Stream<QuerySnapshot> searchProductsByChildCategoryID(
       {@required String childCategoryID, @required String searchValue}) {
     return productCollection
