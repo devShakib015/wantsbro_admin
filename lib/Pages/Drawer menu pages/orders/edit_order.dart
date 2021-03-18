@@ -124,7 +124,8 @@ class _EditOrderState extends State<EditOrder> {
                                       Text(
                                           "CustomerID: ${userData["customerId"]}"),
                                       Text("Email: ${userData["email"]}"),
-                                      Text("Name: ${userData["phone"]}"),
+                                      Text(
+                                          "Phone: ${userData["phone"] ?? "Not Set"}"),
                                     ],
                                   );
                                 }

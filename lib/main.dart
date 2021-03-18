@@ -6,6 +6,7 @@ import 'package:wantsbro_admin/Other%20Pages/loading.dart';
 import 'package:wantsbro_admin/Other%20Pages/something_went_wrong.dart';
 import 'package:wantsbro_admin/Providers/auth_provider.dart';
 import 'package:wantsbro_admin/Providers/category_provider.dart';
+import 'package:wantsbro_admin/Providers/dashboard_provider.dart';
 import 'package:wantsbro_admin/Providers/order_provider.dart';
 import 'package:wantsbro_admin/Providers/product_provider.dart';
 import 'package:wantsbro_admin/Providers/storage_provider.dart';
@@ -98,6 +99,9 @@ class _MainAppState extends State<MainApp> {
         ),
         ChangeNotifierProvider<UserProvider>(
           create: (_) => UserProvider(),
+        ),
+        ChangeNotifierProvider<DashboardProvider>(
+          create: (_) => DashboardProvider(),
         ),
       ],
       child: MaterialApp(
