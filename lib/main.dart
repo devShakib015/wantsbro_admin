@@ -9,6 +9,7 @@ import 'package:wantsbro_admin/Providers/category_provider.dart';
 import 'package:wantsbro_admin/Providers/order_provider.dart';
 import 'package:wantsbro_admin/Providers/product_provider.dart';
 import 'package:wantsbro_admin/Providers/storage_provider.dart';
+import 'package:wantsbro_admin/Providers/user_provider.dart';
 import 'package:wantsbro_admin/landing_page.dart';
 import 'package:wantsbro_admin/theming/theme.dart';
 
@@ -94,6 +95,9 @@ class _MainAppState extends State<MainApp> {
         ),
         ChangeNotifierProvider<OrderProvider>(
           create: (_) => OrderProvider(),
+        ),
+        ChangeNotifierProvider<UserProvider>(
+          create: (_) => UserProvider(),
         ),
       ],
       child: MaterialApp(

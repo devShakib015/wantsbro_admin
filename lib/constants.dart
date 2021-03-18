@@ -10,3 +10,5 @@ CollectionReference productCollection =
     FirebaseFirestore.instance.collection("products");
 CollectionReference orderCollection =
     FirebaseFirestore.instance.collection("orders");
+CollectionReference userCollection =
+    FirebaseFirestore.instance.collection("users");

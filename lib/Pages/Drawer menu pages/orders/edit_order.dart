@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:wantsbro_admin/Providers/order_provider.dart';
 import 'package:wantsbro_admin/Providers/product_provider.dart';
+import 'package:wantsbro_admin/Providers/user_provider.dart';
+import 'package:wantsbro_admin/theming/color_constants.dart';
 
 class EditOrder extends StatefulWidget {
   final String orderID;
@@ -28,7 +30,7 @@ class _EditOrderState extends State<EditOrder> {
     'Awaiting Acceptance',
     'Processing',
     'Completed',
-    "Cancelled"
+    //"Cancelled"
   ];
   String dropdownValue;
   @override
@@ -48,26 +50,29 @@ class _EditOrderState extends State<EditOrder> {
                   SizedBox(
                     width: 10,
                   ),
-                  DropdownButton<String>(
-                    value: dropdownValue,
-                    icon: const Icon(Icons.arrow_downward),
-                    iconSize: 24,
-                    elevation: 16,
-                    onChanged: (String newValue) async {
-                      setState(() {
-                        dropdownValue = newValue;
-                      });
-                      await Provider.of<OrderProvider>(context, listen: false)
-                          .updateOrderStatus(widget.orderID, newValue);
-                    },
-                    items:
-                        statuses.map<DropdownMenuItem<String>>((String value) {
-                      return DropdownMenuItem<String>(
-                        value: value,
-                        child: Text(value),
-                      );
-                    }).toList(),
-                  ),
+                  widget.status == "Cancelled"
+                      ? Text("Cancelled")
+                      : DropdownButton<String>(
+                          value: dropdownValue,
+                          icon: const Icon(Icons.arrow_downward),
+                          iconSize: 24,
+                          elevation: 16,
+                          onChanged: (String newValue) async {
+                            setState(() {
+                              dropdownValue = newValue;
+                            });
+                            await Provider.of<OrderProvider>(context,
+                                    listen: false)
+                                .updateOrderStatus(widget.orderID, newValue);
+                          },
+                          items: statuses
+                              .map<DropdownMenuItem<String>>((String value) {
+                            return DropdownMenuItem<String>(
+                              value: value,
+                              child: Text(value),
+                            );
+                          }).toList(),
+                        ),
                 ],
               ),
               FutureBuilder<DocumentSnapshot>(
@@ -89,6 +94,47 @@ class _EditOrderState extends State<EditOrder> {
                     return Container(
                       child: Column(
                         children: [
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Container(
+                            padding: EdgeInsets.all(16),
+                            child: FutureBuilder<DocumentSnapshot>(
+                              future: Provider.of<UserProvider>(context)
+                                  .getUserInfo(data["userId"]),
+                              builder: (BuildContext context,
+                                  AsyncSnapshot<DocumentSnapshot> snapshot) {
+                                if (!snapshot.hasData) {
+                                  return Padding(
+                                    padding: const EdgeInsets.all(16.0),
+                                    child: Text("Loading..."),
+                                  );
+                                } else if (snapshot.hasError) {
+                                  return Padding(
+                                    padding: const EdgeInsets.all(16.0),
+                                    child: Text("Error..."),
+                                  );
+                                } else {
+                                  final userData = snapshot.data.data();
+                                  return Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text("Name: ${userData["name"]}"),
+                                      Text(
+                                          "CustomerID: ${userData["customerId"]}"),
+                                      Text("Email: ${userData["email"]}"),
+                                      Text("Name: ${userData["phone"]}"),
+                                    ],
+                                  );
+                                }
+                                ;
+                              },
+                            ),
+                            decoration: BoxDecoration(
+                                border: Border.all(width: 2, color: mainColor),
+                                borderRadius: BorderRadius.circular(20)),
+                          ),
                           Container(
                               padding: EdgeInsets.all(16),
                               width: double.infinity,

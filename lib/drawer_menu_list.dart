@@ -7,7 +7,7 @@ import 'package:wantsbro_admin/Pages/Drawer%20menu%20pages/orders/orders.dart';
 import 'package:wantsbro_admin/Pages/Drawer%20menu%20pages/products/products.dart';
 import 'package:wantsbro_admin/Pages/Drawer%20menu%20pages/reviews.dart';
 import 'package:wantsbro_admin/Pages/Drawer%20menu%20pages/settings.dart';
-import 'package:wantsbro_admin/Pages/Drawer%20menu%20pages/users.dart';
+import 'package:wantsbro_admin/Pages/Drawer%20menu%20pages/users/users.dart';
 
 List<Map<dynamic, dynamic>> drawerMenus = [
   {
