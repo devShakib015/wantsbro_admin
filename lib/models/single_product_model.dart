@@ -1,6 +1,5 @@
 import 'dart:convert';
 import 'package:flutter/foundation.dart';
-
 import 'package:wantsbro_admin/models/product_model.dart';
 
 class SingleProductModel extends ProductModel {

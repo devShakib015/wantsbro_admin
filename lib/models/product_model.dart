@@ -1,4 +1,4 @@
-class ProductModel {
+abstract class ProductModel {
   String title;
   String parentCategoryID;
   String parentCategoryName;
