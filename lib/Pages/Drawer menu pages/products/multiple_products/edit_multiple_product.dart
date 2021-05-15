@@ -81,6 +81,20 @@ class _EditMultipleProductState extends State<EditMultipleProduct> {
     }
     return Scaffold(
       appBar: AppBar(
+        actions: [
+          widget.id == null
+              ? Opacity(
+                  opacity: 0,
+                  child: Icon(Icons.delete),
+                )
+              : IconButton(
+                  icon: Icon(Icons.delete),
+                  onPressed: () async {
+                    await Provider.of<ProductProvider>(context, listen: false)
+                        .deleteProduct(context, widget.id);
+                    Navigator.pop(context);
+                  })
+        ],
         title: Text(widget.id == null
             ? "Add New Multiple Product"
             : "Edit Multiple Product"),

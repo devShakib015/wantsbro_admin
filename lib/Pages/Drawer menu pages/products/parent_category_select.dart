@@ -5,7 +5,6 @@ import 'package:wantsbro_admin/Other%20Pages/loading.dart';
 import 'package:wantsbro_admin/Other%20Pages/something_went_wrong.dart';
 import 'package:wantsbro_admin/Pages/Drawer%20menu%20pages/products/child_category_select.dart';
 import 'package:wantsbro_admin/Providers/category_provider.dart';
-import 'package:wantsbro_admin/theming/color_constants.dart';
 
 class ParentCategorySelect extends StatelessWidget {
   Widget build(BuildContext context) {

@@ -65,7 +65,7 @@ class StorageProvider extends ChangeNotifier {
       Toast.show("Images successfully uploaded", context,
           duration: Toast.LENGTH_SHORT, gravity: Toast.BOTTOM);
       return urlList;
-    } on Exception catch (e) {
+    } on Exception {
       Toast.show("You didn't select any product.", context,
           duration: Toast.LENGTH_SHORT, gravity: Toast.BOTTOM);
       return null;
